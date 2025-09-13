@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import SectionWrapper from './SectionWrapper';
 export const HeroSection = () => {
 return (
-    <section className="py-8 ">
+    <SectionWrapper id="home">
             <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5">
                 <div className="mx-auto text-center max-w-xl">
                     <h1 className="relative font-semibold max-w-max mx-auto pb-2 font-display text-3xl sm:text-4xl md:text-5xl text-gray-800 dark:text-white after:absolute
@@ -60,6 +61,6 @@ return (
                     </div>
                </div>
             </div>
-        </section>
+        </SectionWrapper>
 );
 }
