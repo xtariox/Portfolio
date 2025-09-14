@@ -1,76 +1,80 @@
-/* @import "tailwindcss";
+@import "tailwindcss";
+
+html,
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+  overflow-x: hidden; 
+}
+
+section {
+  @apply py-10;
+  position: relative;
+  background-color: var(--bg); /* your theme background */
+  z-index: 10;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ===== Light Mode ===== */
+  --bg: #ffffff;
+  --text: #111827;
+  --muted-text: #6b7280;
+  --border: #e5e7eb;
+  --subtle-bg: #f9fafb;
+
+  --navbar-bg: #ffffff;
+  --navbar-text: #111827;
+  --navbar-border: #e5e7eb;
+  --navbar-hover: #374151;
+
+  --card-bg: #f9fafb;
+  --card-border: #e5e7eb;
+  --accent: #709bf8; /* blue-600 */
+
+  /* Hero tokens */
+  --hero-title: #0f172a;
+  --hero-subtitle: #1f2937;
+  --hero-text: #111827;
+  --hero-muted: #6b7280;
+
+  --hero-title-size: clamp(2rem, 5vw, 3rem);
+  --hero-subtitle-size: clamp(1.25rem, 3vw, 1.75rem);
+  --hero-stat-size: 1.25rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ===== Dark Mode ===== */
+.dark {
+  --bg: #0d1117;         /* page background */
+  --text: #e5e7eb;       /* main text */
+  --muted-text: #9ca3af; /* secondary text */
+  --border: #1f2937;     /* borders */
+  --subtle-bg: #111827;  /* subtle background */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --navbar-bg: #161b22;
+  --navbar-text: #e5e7eb;
+  --navbar-border: #1f2937;
+  --navbar-hover: #9ec8b9; /* subtle teal */
+
+  --card-bg: #1e293b;
+  --card-border: #2d333b;
+  --accent: #5c8374; /* muted teal */
+
+  /* Hero tokens */
+  --hero-title: #f9fafb;
+  --hero-subtitle: #d1d5db;
+  --hero-text: #e5e7eb;
+  --hero-muted: #9ca3af;
+
+  --hero-title-size: clamp(2rem, 5vw, 3rem);
+  --hero-subtitle-size: clamp(1.25rem, 3vw, 1.75rem);
+  --hero-stat-size: 1.25rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-/* Import Tailwind v4
-@import "tailwindcss";
-
-/* ==== Base defaults ==== */
-/* html, body {
-  @apply bg-white text-gray-800 antialiased;
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
-} */
-
-/* ==== Dark mode ==== */
-/* .dark {
-  @apply bg-gray-900 text-gray-100;
-} */
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: bg-gray-900;
-    --foreground: text-gray-100;
-  }
-} */
-/* ==== Text selection color ==== */
-/* ::selection {
-  background-color: #2563eb; /* Tailwind blue-600 */
-  /* color: white;
-} */ 
-
-/* ==== Scrollbar styling (optional, nice touch) ==== */
-/* ::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-thumb {
-  background: #9ca3af; /* gray-400 */
-  /* border-radius: 9999px; 
-}
-::-webkit-scrollbar-thumb:hover { */
-  /* background: #6b7280; /* gray-500 */
-/* }  */
-
-  
-@import "tailwindcss";
-html, body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif; }
-@custom-variant dark (&:where(.dark, .dark *));
-section {
-  @apply px-4 sm:px-6 md:px-8 lg:px-12;
-}
-html {
-  scroll-behavior: smooth;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
 }

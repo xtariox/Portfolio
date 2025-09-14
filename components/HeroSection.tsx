@@ -1,66 +1,152 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import SectionWrapper from './SectionWrapper';
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import SectionWrapper from "./SectionWrapper";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 export const HeroSection = () => {
-return (
+  const { t } = useLanguage();
+
+  return (
     <SectionWrapper id="home">
-            <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5">
-                <div className="mx-auto text-center max-w-xl">
-                    <h1 className="relative font-semibold max-w-max mx-auto pb-2 font-display text-3xl sm:text-4xl md:text-5xl text-gray-800 dark:text-white after:absolute
-                        after:bottom-0 after:left-0 after:h-0.5 after:rounded-lg after:bg-gray-800 dark:after:bg-gray-100 after:w-4">
-                        HAIDA Wissal
-                    </h1>
-                </div>
-                <div className="mt-10 grid md:grid-cols-2 gap-x-6 lg:gap-x-14 gap-y-8 md:items-center">
-                    <div className="space-y-4 md:space-y-6 md:col-span-1 lg:col-span-1 w-full max-w-3xl lg:max-w-none mx-auto lg:mx-0 text-left">
-                      <h1 className="font-display font-semibold text-2xl md:text-3xl text-gray-900 dark:text-white">
-                            Software Engineer & AI Enthusiast
-                        </h1>
-                        <div className="text-gray-700 dark:text-gray-300 space-y-3 mx-auto max-w-2xl lg:max-w-none">
-                            <p>Technology should serve people — that’s why I create applications where AI meets human needs.</p>
-                            {/* <p>With a strong foundation in software engineering and a passion for AI, I build solutions that are not only innovative but also user-centric.</p> */}
-                        </div>
-                        <div className="flex justify-center lg:justify-start">
-                            <Link href="#" className="px-6 h-11 flex items-center rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm transition ease-linear hover:bg-gray-900">Hire me</Link>
-                        </div>
-                        <div className="grid lg:grid-cols-4 md:grid-cols-3 w-full gap-y-3">
-                            <div className='lg:col-span-2'>
-                                <h2 className="text-xl md:text-2xl font-display font-semibold text-gray-800 dark:text-gray-200">5 years</h2>
-                                <span className="text-gray-600">Engineering Background</span>
-                            </div>
-                            <div>
-                                <h2 className="text-xl md:text-2xl font-display font-semibold text-gray-800 dark:text-gray-200">+10</h2>
-                                <span className="text-gray-600">Projects</span>
-                            </div>
-                            <div>
-                                <h2 className="text-xl md:text-2xl font-display font-semibold text-gray-800 dark:text-gray-200">90%</h2>
-                                <span className="text-gray-600">Positive Feedback</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex justify-center mt-4 md:mt-6">
-                      <div className="relative max-w-full sm:max-w-lg md:max-w-xl ">
-                        {/* Background gradient layer */}
-                        <span className="absolute inset-0 rounded-xl scale-[1.06] bg-gradient-to-b from-gray-200 to-transparent dark:from-gray-900 z-0" />
+      <div className="mx-auto my-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5">
+        {/* Title */}
+        <div className="mx-auto text-center max-w-xl">
+          <h1
+            className="relative font-semibold max-w-max mx-auto pb-2 font-display"
+            style={{
+              fontSize: "var(--hero-title-size)",
+              color: "var(--hero-title)",
+            }}
+          >
+            HAIDA Wissal
+          </h1>
+        </div>
 
-                        {/* Solid background layer */}
-                        <span className="absolute inset-0 rounded-xl scale-[1.05] bg-gray-100 dark:bg-gray-900 z-0" />
+        {/* Grid Layout */}
+        <div className="mt-10 grid md:grid-cols-2 gap-x-6 lg:gap-x-14 gap-y-8 md:items-center">
+          {/* Left Side */}
+          <div className="space-y-4 md:space-y-6 w-full max-w-3xl lg:max-w-none mx-auto lg:mx-0 text-left">
+            <h2
+              className="font-display font-semibold"
+              style={{
+                fontSize: "var(--hero-subtitle-size)",
+                color: "var(--hero-subtitle)",
+              }}
+            >
+              {t('hero-subtitle', {
+                en: 'Software Engineer & AI Enthusiast',
+                fr: 'Ingénieure Logiciel & Passionnée d\'IA'
+              })}
+            </h2>
 
-                        {/* Your image */}
-                        <Image
-                          src="/Untitled design (2).png"
-                          width={1400}
-                          height={1376}
-                          alt="Portrait"
-                          className="
-                            relative z-10 w-full h-auto object-contain rounded-xl
-                            lg:max-h-[26rem]
-                          "
-                        />
-                      </div>
-                    </div>
-               </div>
+            <div
+              className="space-y-3 mx-auto max-w-2xl lg:max-w-none"
+              style={{ color: "var(--hero-muted)" }}
+            >
+              <p>
+                {t('hero-description', {
+                  en: 'Technology should serve people — that\'s why I create applications where AI meets human needs.',
+                  fr: 'La technologie doit servir les gens — c\'est pourquoi je crée des applications où l\'IA répond aux besoins humains.'
+                })}
+              </p>
             </div>
-        </SectionWrapper>
-);
-}
+
+            {/* CTA Button */}
+            <div className="flex justify-center lg:justify-start">
+              <Link
+                href="#contact"
+                className="px-6 h-11 flex items-center rounded-lg text-sm transition ease-linear hover:opacity-90"
+                style={{
+                  backgroundColor: "var(--accent)",
+                  color: "var(--bg)",
+                }}
+              >
+                <b>{t('hero-cta', { en: 'Hire me', fr: 'Embauchez-moi' })}</b>
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="grid lg:grid-cols-4 md:grid-cols-3 w-full gap-y-3">
+              <div className="lg:col-span-2">
+                <h3
+                  className="font-display font-semibold"
+                  style={{
+                    fontSize: "var(--hero-stat-size)",
+                    color: "var(--hero-text)",
+                  }}
+                >
+                  5 {t('hero-years', { en: 'years', fr: 'ans' })}
+                </h3>
+                <span style={{ color: "var(--hero-muted)" }}>
+                  {t('hero-engineering-bg', {
+                    en: 'Engineering Background',
+                    fr: 'Formation en Ingénierie'
+                  })}
+                </span>
+              </div>
+              <div>
+                <h3
+                  className="font-display font-semibold"
+                  style={{
+                    fontSize: "var(--hero-stat-size)",
+                    color: "var(--hero-text)",
+                  }}
+                >
+                  +10
+                </h3>
+                <span style={{ color: "var(--hero-muted)" }}>
+                  {t('hero-projects', { en: 'Projects', fr: 'Projets' })}
+                </span>
+              </div>
+              <div>
+                <h3
+                  className="font-display font-semibold"
+                  style={{
+                    fontSize: "var(--hero-stat-size)",
+                    color: "var(--hero-text)",
+                  }}
+                >
+                  90%
+                </h3>
+                <span style={{ color: "var(--hero-muted)" }}>
+                  {t('hero-feedback', {
+                    en: 'Positive Feedback',
+                    fr: 'Retours Positifs'
+                  })}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side (Image) */}
+          <div className="flex justify-center mt-4 md:mt-6">
+            <div className="relative max-w-full sm:max-w-lg md:max-w-xl">
+              {/* Background gradient layer */}
+              <span
+                className="absolute inset-0 rounded-xl scale-[1.06] z-0"
+                style={{ background: "linear-gradient(to bottom, var(--border), transparent)" }}
+              />
+
+              {/* Solid background layer */}
+              <span
+                className="absolute inset-0 rounded-xl scale-[1.05] z-0"
+                style={{ backgroundColor: "var(--subtle-bg)" }}
+              />
+
+              {/* Portrait */}
+              <Image
+                src="/Untitled design (2).png"
+                width={1400}
+                height={1376}
+                alt="Portrait"
+                className="relative z-10 w-full h-auto object-contain rounded-xl lg:max-h-[26rem]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+};

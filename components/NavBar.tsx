@@ -4,24 +4,29 @@ import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useActiveSection } from "@/hooks/useActiveSection";
-import { section } from "framer-motion/client";
+import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const navItems = [
-  { id: 1, text: "Home", link: "home" },
-  { id: 2, text: "About", link: "about" },
-  { id: 3, text: "Blog", link: "blog" },
+  { id: 1, text: { en: "Home", fr: "Accueil" }, link: "home" },
+  { id: 2, text: { en: "About", fr: "À propos" }, link: "about" },
+  { id: 3, text: { en: "Experience", fr: "Expérience" }, link: "experience" },
+  { id: 4, text: { en: "Projects", fr: "Projets" }, link: "projects" },
+  { id: 5, text: { en: "Contact", fr: "Contact" }, link: "contact" },
 ];
+
+type NavItem = typeof navItems[0];
 
 export const Navbar = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
   const pathname = usePathname();
-
-  // Track active section while scrolling
   const activeSection = useActiveSection(navItems.map((i) => i.link));
+  const { t } = useLanguage();
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    item: any
+    item: NavItem
   ) => {
     if (pathname === "/") {
       e.preventDefault();
@@ -29,137 +34,112 @@ export const Navbar = () => {
         behavior: "smooth",
         block: "center",
       });
+      setOpenNavbar(false);
     }
   };
-
-  const toggleNavbar = () => setOpenNavbar((prev) => !prev);
-  const closeNavbar = () => setOpenNavbar(false);
 
   return (
     <>
       {/* Overlay for mobile */}
       <div
-        onClick={closeNavbar}
+        onClick={() => setOpenNavbar(false)}
         aria-hidden="true"
         className={`fixed bg-gray-800/40 inset-0 z-30 ${
           openNavbar ? "flex lg:hidden" : "hidden"
         }`}
       />
 
-      <header className="sticky px-5 left-0 top-0 w-full flex items-center h-20 bg-white border-b border-b-gray-200 dark:bg-gray-950 dark:border-b-gray-800 z-40">
-        <nav className="relative mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex gap-x-5 justify-between items-center">
-          {/* Mobile toggle */}
-          <div className="w-full flex items-center lg:hidden">
+      <header className="sticky top-0 w-full bg-[var(--navbar-bg)] border-b border-[var(--navbar-border)] z-40">
+        <nav className="relative mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex items-center justify-between h-20 text-[var(--navbar-text)]">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-x-0.5">
+            <span className="bg-gray-700 dark:bg-gray-800 text-white px-2 py-1.5 rounded-lg">
+              H
+            </span>
+            <span aria-hidden="true" className="hidden sm:flex">
+              AIDA
+            </span>
+          </Link>
+
+          {/* Links */}
+          <ul className="hidden lg:flex items-center gap-x-6">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <Link
+                  href={item.link === 'home' ? '/' : `/${item.link}`}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className={`
+                    relative py-2 px-1
+                    after:absolute after:bottom-0 after:left-0 after:h-0.5 after:rounded-lg
+                    after:duration-300 after:ease-linear after:bg-[var(--navbar-hover)]
+                    ${
+                      activeSection === item.link
+                        ? "after:w-full"
+                        : "after:w-0 hover:after:w-full"
+                    }
+                  `}
+                >
+                  {t('nav-' + item.link, item.text)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Right side */}
+          <div className="flex items-center gap-x-3">
+            <LanguageToggle />
+            <ThemeToggle />
+
+            {/* Hamburger */}
             <button
-              onClick={toggleNavbar}
+              onClick={() => setOpenNavbar(!openNavbar)}
               aria-label="toggle navbar"
-              className="outline-none border-r border-r-gray-200 dark:border-r-gray-800 pr-3 relative py-3 children:flex"
+              className="lg:hidden flex flex-col justify-center items-center"
             >
               <span
-                aria-hidden="true"
-                className={`h-0.5 w-6 rounded bg-gray-800 dark:bg-gray-200 transition duration-300
-                  ${openNavbar ? " rotate-45 translate-y-[0.33rem]" : ""}`}
+                className={`h-0.5 w-6 bg-[var(--navbar-text)] rounded transition-all duration-300 ${
+                  openNavbar ? "rotate-45 translate-y-1.5" : ""
+                }`}
               />
               <span
-                aria-hidden="true"
-                className={`mt-2 h-0.5 w-6 rounded bg-gray-800 dark:bg-gray-200 transition duration-300
-                  ${openNavbar ? " -rotate-45 -translate-y-[0.33rem]" : ""}`}
+                className={`h-0.5 w-6 bg-[var(--navbar-text)] rounded transition-all duration-300 mt-1 ${
+                  openNavbar ? "-rotate-45 -translate-y-1.5" : ""
+                }`}
               />
             </button>
           </div>
 
-          {/* Nav links */}
+          {/* Mobile Menu */}
           <div
-            className={`top-full absolute left-0 bg-white dark:bg-gray-950 dark:lg:bg-transparent
-              lg:flex w-full ease-linear duration-300
-              lg:relative lg:bg-transparent border-b border-b-gray-200 dark:border-b-gray-800 lg:border-b-0
-              ${openNavbar ? "" : "invisible opacity-0 lg:visible lg:opacity-100"}`}
+            className={`absolute top-full left-0 w-full bg-[var(--navbar-bg)] shadow-md lg:hidden transition-all duration-300 ${
+              openNavbar ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
           >
-            <ul className="px-5 sm:px-10 md:px-12 lg:px-0 flex flex-col lg:flex-row lg:items-center gap-y-6 lg:gap-x-5 text-gray-700 dark:text-gray-300 py-4 lg:py-0">
+            <ul className="flex flex-col items-center py-4 gap-y-4 text-[var(--navbar-text)]">
               {navItems.map((item) => (
                 <li key={item.id}>
                   <Link
-                    href={`#${item.link}`}
-                    onClick={(e) => handleNavClick(e, item)}
-                    className={`
-                      relative py-3 text-gray-700 dark:text-gray-300 
-                      hover:text-gray-900 dark:hover:text-gray-100
-                      after:absolute after:bottom-0 after:left-0 after:h-0.5 after:rounded-lg
-                      after:duration-300 after:ease-linear after:bg-gray-600
-                      ${
-                        activeSection === item.link
-                          ? "after:w-full"
-                          : "after:w-0 hover:after:w-full"
-                      }
-                    `}
-                  >
-                    {item.text}
-                  </Link>
+                  href={item.link === 'home' ? '/' : `/${item.link}`}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className={`
+                    relative py-2 px-1
+                    after:absolute after:bottom-0 after:left-0 after:h-0.5 after:rounded-lg
+                    after:duration-300 after:ease-linear after:bg-[var(--navbar-hover)]
+                    ${
+                      activeSection === item.link
+                        ? "after:w-full"
+                        : "after:w-0 hover:after:w-full"
+                    }
+                  `}
+                >
+                  {t('nav-' + item.link, item.text)}
+                </Link>
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Logo */}
-          <div className="flex items-center flex-1">
-            <Link
-              href="#"
-              className="flex items-center gap-x-0.5 text-gray-800 dark:text-gray-200"
-            >
-              <span className="bg-gray-700 dark:bg-gray-800 text-white px-2 py-1.5 rounded-lg">
-                H
-              </span>
-              <span aria-hidden="true" className="hidden sm:flex">
-                AIDA
-              </span>
-            </Link>
-          </div>
-
-          {/* Socials */}
-          <div className="flex justify-end items-center gap-x-1.5 sm:gap-x-2 w-full text-gray-700 dark:text-gray-300">
-            <a
-              href="https://github.com/"
-              target="_blank"
-              className="duration-200 ease-linear hover:text-gray-800 dark:hover:text-gray-100"
-              rel="noopener noreferrer"
-            >
-              <span className="sr-only">GitHub</span>
-              {/* GitHub icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                fill="currentColor"
-                className="m-1 w-5 h-5"
-                viewBox="0 0 16 16"
-              >
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-              </svg>
-            </a>
-
-            <a
-              href="https://linkedin.com/"
-              target="_blank"
-              className="duration-200 ease-linear hover:text-gray-800 dark:hover:text-gray-100"
-              rel="noopener noreferrer"
-            >
-              <span className="sr-only">LinkedIn</span>
-              {/* LinkedIn icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                fill="currentColor"
-                className="m-1 w-5 h-5"
-                viewBox="0 0 16 16"
-              >
-                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.521-1.248-1.342-1.248-.821 0-1.358.54-1.358 1.248 0 .694.52 1.248 1.327 1.248h.015zm4.908 8.212h2.4v-4.045c0-.216.016-.432.08-.586.176-.432.577-.88 1.25-.88.881 0 1.234.664 1.234 1.637v3.874h2.4V9.359c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.6 5.6 0 0 1 .016-.025V6.169h-2.4c.03.7 0 7.225 0 7.225z" />
-              </svg>
-            </a>
           </div>
         </nav>
       </header>
     </>
   );
 };
-    

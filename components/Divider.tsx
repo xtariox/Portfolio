@@ -1,7 +1,22 @@
-export default function Divider() {
-    return (
-                <div className="mt-12 flex justify-center">
-          <span className="w-1/2 border-t-2 border-gray-400 dark:border-gray-600"></span>
-        </div>
-    )
+"use client";
+
+import { motion } from "framer-motion";
+
+interface DividerProps {
+  className?: string;
+}
+
+export default function Divider({ className = "" }: DividerProps) {
+  return (
+    <div className={`flex items-center justify-center py-16 ${className}`}>
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: "100%" }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        className="max-w-md"
+      >
+        <div className="h-px bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-30"></div>
+      </motion.div>
+    </div>
+  );
 }
