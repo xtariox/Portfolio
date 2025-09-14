@@ -9,98 +9,87 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const experienceData = {
   education: [
     {
-      title: { en: "National School of Applied Sciences", fr: "École Nationale des Sciences Appliquées de Safi" },
-      subtitle: { en: "Computer Science & AI Engineering", fr: "Informatique et Intelligence Artificielle" },
-      period: "2021-présent",
+      title: { en: "Engineering Degree - Computer Science and Artificial Intelligence", fr: "Diplôme d'Ingénieur – Génie Informatique et Intelligence Artificielle" },
+      subtitle: { en: "ENSA Safi - National School of Applied Sciences", fr: "ENSA Safi – École Nationale des Sciences Appliquées" },
+      period: "2021 – Présent",
       location: "Safi, Morocco",
       description: { 
-        en: "Engineering program specializing in Artificial Intelligence & Software Engineering with focus on machine learning, data science, and full-stack development.",
-        fr: "Programme d'ingénierie spécialisé en Intelligence Artificielle et Génie Logiciel avec un focus sur l'apprentissage automatique, la science des données et le développement full-stack."
+        en: "3rd year engineering student in Computer Science and Artificial Intelligence (Preparatory cycle + Engineering cycle). Passionate about software development, AI, and data science, seeking to apply skills in innovative projects.",
+        fr: "Étudiante en 3ème année du Cycle Ingénieur en Génie Informatique et Intelligence Artificielle (Cycle préparatoire + Cycle ingénieur). Passionnée par le développement logiciel, l'IA et la data science, cherchant à appliquer mes compétences dans des projets innovants."
       },
-      skills: ["Machine Learning", "Full-Stack Development", "Data Science", "Software Architecture"]
+      skills: ["Artificial Intelligence", "Software Development", "Data Science", "Machine Learning", "Full-Stack Development"]
     },
     {
-      title: { en: "Preparatory Classes", fr: "Classes Préparatoires pour l'Économie et le Commerce" },
-      subtitle: { en: "CPGE Prince Moulay El Hassan", fr: "CPGE Prince Moulay El Hassan" },
-      period: "2020-2021",
-      location: "Ouarzazate, Morocco",
+      title: { en: "Physics Sciences Baccalaureate", fr: "Bac Sciences Physiques" },
+      subtitle: { en: "Akensous High School, Essaouira", fr: "Lycée Akensous, Essaouira" },
+      period: "2019 – 2020",
+      location: "Essaouira, Morocco",
       description: {
-        en: "Intensive preparatory classes for economics and commerce with advanced mathematics and analytical skills development.",
-        fr: "Classes préparatoires intensives en économie et commerce avec développement avancé des mathématiques et des compétences analytiques."
+        en: "High school diploma specializing in Physical Sciences, providing a strong foundation in mathematics, physics, and scientific methodology.",
+        fr: "Baccalauréat spécialisé en Sciences Physiques, fournissant une base solide en mathématiques, physique et méthodologie scientifique."
       },
-      skills: ["Advanced Mathematics", "Economics", "Analytics", "Problem Solving"]
+      skills: ["Mathematics", "Physics", "Chemistry", "Scientific Method"]
     },
   ],
   experience: [
     {
-      title: { en: "Final Year Project Intern", fr: "Stagiaire PFE" },
+      title: { en: "Cross-Platform Development Intern", fr: "Stagiaire Développement Cross-Plateforme" },
       subtitle: { en: "OCP Group", fr: "Groupe OCP" },
-      period: "Jan 2025 – Jun 2025",
-      location: "Jorf Lasfar, Morocco",
+      period: "Jul 2025 – Aug 2025",
+      location: "Jorf Lasfar, El Jadida, Morocco",
       description: {
-        en: "Built an HSE inspection app with AI for PPE detection, delivered real-time dashboards with Power BI, and improved reporting efficiency by 40%.",
-        fr: "Développement d'une application d'inspection HSE avec IA pour la détection des EPI, création de tableaux de bord en temps réel avec Power BI, et amélioration de l'efficacité des rapports de 40%."
+        en: "Developed a cross-platform HSE management application with custom checklists, inspections with photo evidence and comments, and PDF report generation. Implemented AI for automatic PPE detection (helmets, vests) and non-compliance reporting.",
+        fr: "Développement d'une application cross-plateforme de gestion HSE avec check-lists personnalisées, inspections avec preuves photos et commentaires, et génération de rapports PDF. Implémentation d'IA pour détection automatique d'EPI (casques, gilets) et signalement des non-conformités."
       },
-      skills: ["AI/Computer Vision", "Power BI", "React", "Python", "HSE Systems"]
+      skills: ["React Native (Expo)", "Supabase", "YOLOv8", "Edge Functions", "Computer Vision", "HSE Management"]
     },
     {
-      title: { en: "Software Development Intern", fr: "Stagiaire Développeur" },
-      subtitle: { en: "Super Auto Distribution", fr: "Super Auto Distribution" },
-      period: "Jul 2024 – Sep 2024",
-      location: "Agadir, Morocco",
+      title: { en: "Software Development Intern", fr: "Stagiaire Développement Logiciel" },
+      subtitle: { en: "OCP Group", fr: "Groupe OCP" },
+      period: "Jun 2024",
+      location: "Jorf Lasfar, El Jadida, Morocco",
       description: {
-        en: "Assisted in maintaining automotive systems, worked with diagnostic tools and technical documentation, and supported digital transformation initiatives.",
-        fr: "Assistance dans la maintenance des systèmes automobiles, travail avec des outils de diagnostic et documentation technique, et soutien aux initiatives de transformation numérique."
+        en: "Developed a web application for static equipment management including inventory operations (add, modify, delete). Built comprehensive equipment tracking system for industrial operations.",
+        fr: "Développement d'une application web pour la gestion des équipements statiques : inventaire (ajout, modification, suppression). Construction d'un système complet de suivi d'équipements pour les opérations industrielles."
       },
-      skills: ["System Maintenance", "Technical Documentation", "Diagnostic Tools", "Digital Transformation"]
+      skills: ["Spring Boot", "React", "PostgreSQL", "Web Development", "Database Management"]
     },
   ],
   activities: [
     {
-      title: { en: "Tech Community Leader", fr: "Leader Communauté Tech" },
-      subtitle: { en: "ENSA Safi Student Association", fr: "Association Étudiante ENSA Safi" },
-      period: "2022-présent",
+      title: { en: "Active Member - ByteBrigade Club", fr: "Membre Actif - Club ByteBrigade" },
+      subtitle: { en: "Computer Science Club - ENSA Safi", fr: "Club d'Informatique - ENSA Safi" },
+      period: "2024 - Present",
       location: "Safi, Morocco",
       description: {
-        en: "Organized coding workshops, hackathons, and tech talks. Led a team of 15+ students in various technology initiatives and mentored junior developers.",
-        fr: "Organisation d'ateliers de programmation, hackathons et conférences tech. Direction d'une équipe de 15+ étudiants dans diverses initiatives technologiques et mentorat de développeurs juniors."
+        en: "Active participant in a dynamic computer science club focused on technology innovation and programming excellence. Engage in collaborative projects, technical workshops, coding competitions, and knowledge sharing sessions. Contribute to organizing tech events, hackathons, and programming tutorials for fellow students.",
+        fr: "Participant actif dans un club d'informatique dynamique axé sur l'innovation technologique et l'excellence en programmation. Participation à des projets collaboratifs, ateliers techniques, compétitions de codage et sessions de partage de connaissances. Contribution à l'organisation d'événements tech, hackathons et tutoriels de programmation pour les étudiants."
       },
-      skills: ["Leadership", "Event Organization", "Mentoring", "Public Speaking"]
-    },
-    {
-      title: { en: "Freelance Developer", fr: "Développeur Freelance" },
-      subtitle: { en: "Independent", fr: "Indépendant" },
-      period: "2023-présent",
-      location: "Remote",
-      description: {
-        en: "Developed web applications for local businesses using React, Node.js, and modern web technologies. Delivered 5+ projects with 100% client satisfaction.",
-        fr: "Développement d'applications web pour des entreprises locales utilisant React, Node.js et des technologies web modernes. Livraison de 5+ projets avec 100% de satisfaction client."
-      },
-      skills: ["React", "Node.js", "Client Management", "Project Delivery"]
+      skills: ["Team Collaboration", "Event Organization", "Technical Workshops", "Programming Mentoring", "Leadership", "Community Building"]
     },
   ],
   certifications: [
     {
-      title: { en: "AWS Cloud Practitioner", fr: "AWS Cloud Practitioner" },
-      subtitle: { en: "Amazon Web Services", fr: "Amazon Web Services" },
+      title: { en: "Cisco Networking Academy Certificate", fr: "Certificat Cisco Networking Academy" },
+      subtitle: { en: "Cisco Systems", fr: "Cisco Systems" },
+      period: "2024",
+      location: "ENSA Safi",
+      description: {
+        en: "Comprehensive networking fundamentals including network protocols, routing, switching, and network security. Hands-on experience with Cisco networking equipment and configuration.",
+        fr: "Fondamentaux complets du réseau incluant protocoles réseau, routage, commutation et sécurité réseau. Expérience pratique avec équipements et configuration réseau Cisco."
+      },
+      skills: ["Network Protocols", "Routing & Switching", "Network Security", "Cisco IOS", "Network Configuration"]
+    },
+    {
+      title: { en: "Flutter Development Certificate", fr: "Certificat Développement Flutter" },
+      subtitle: { en: "Flutter Academy", fr: "Flutter Academy" },
       period: "2024",
       location: "Online",
       description: {
-        en: "Foundational understanding of AWS cloud services, security, and architectural best practices for cloud computing solutions.",
-        fr: "Compréhension fondamentale des services cloud AWS, de la sécurité et des meilleures pratiques architecturales pour les solutions de cloud computing."
+        en: "Advanced mobile development with Flutter framework including state management, API integration, custom widgets, and cross-platform deployment strategies.",
+        fr: "Développement mobile avancé avec framework Flutter incluant gestion d'état, intégration API, widgets personnalisés et stratégies déploiement cross-platform."
       },
-      skills: ["AWS Services", "Cloud Architecture", "Security", "Best Practices"]
-    },
-    {
-      title: { en: "React Developer Certification", fr: "Certification Développeur React" },
-      subtitle: { en: "Meta (Facebook)", fr: "Meta (Facebook)" },
-      period: "2023",
-      location: "Online",
-      description: {
-        en: "Advanced React development skills including hooks, context API, state management, and modern React patterns and best practices.",
-        fr: "Compétences avancées en développement React incluant les hooks, l'API de contexte, la gestion d'état et les modèles et meilleures pratiques React modernes."
-      },
-      skills: ["React Hooks", "Context API", "State Management", "Modern Patterns"]
+      skills: ["Flutter", "Dart", "State Management", "API Integration", "Cross-platform Development", "Mobile UI/UX"]
     },
   ]
 };

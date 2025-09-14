@@ -80,10 +80,40 @@ export default function ContactPage() {
                 <div>
                   <h4 className="font-medium text-[var(--text)]">Email</h4>
                   <a 
-                    href="mailto:haidawissal@gmail.com"
+                    href="mailto:cv.haida.wissal@gmail.com"
                     className="text-[var(--muted-text)] hover:text-[var(--accent)] transition-colors text-sm sm:text-base"
                   >
-                    haidawissal@gmail.com
+                    cv.haida.wissal@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg flex items-center justify-center">
+                  <svg
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--accent)]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="font-medium text-[var(--text)]">
+                    {t('phone', { en: 'Phone', fr: 'Téléphone' })}
+                  </h4>
+                  <a 
+                    href="tel:+212695221162"
+                    className="text-[var(--muted-text)] hover:text-[var(--accent)] transition-colors text-sm sm:text-base"
+                  >
+                    (+212) 695-221-162
                   </a>
                 </div>
               </div>
@@ -102,12 +132,12 @@ export default function ContactPage() {
                 <div>
                   <h4 className="font-medium text-[var(--text)]">LinkedIn</h4>
                   <a 
-                    href="https://linkedin.com/in/wissal-haida"
+                    href="https://www.linkedin.com/in/a-haida"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[var(--muted-text)] hover:text-[var(--accent)] transition-colors text-sm sm:text-base"
                   >
-                    linkedin.com/in/wissal-haida
+                    linkedin.com/in/a-haida
                   </a>
                 </div>
               </div>

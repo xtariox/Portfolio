@@ -36,8 +36,8 @@ export const HeroSection = () => {
               }}
             >
               {t('hero-subtitle', {
-                en: 'Software Engineer & AI Enthusiast',
-                fr: 'Ingénieure Logiciel & Passionnée d\'IA'
+                en: '3rd Year Computer Engineering & AI Student',
+                fr: 'Étudiante en 3ème année Génie Informatique & IA'
               })}
             </h2>
 
@@ -47,8 +47,8 @@ export const HeroSection = () => {
             >
               <p>
                 {t('hero-description', {
-                  en: 'Technology should serve people — that\'s why I create applications where AI meets human needs.',
-                  fr: 'La technologie doit servir les gens — c\'est pourquoi je crée des applications où l\'IA répond aux besoins humains.'
+                  en: '3rd year student at ENSA Safi specializing in Computer Engineering and AI. Passionate about software development, artificial intelligence, and data science. Currently seeking a PFE internship.',
+                  fr: 'Étudiante en 3ème année du Cycle Ingénieur en Génie Informatique et Intelligence Artificielle à l\'ENSA Safi. Passionnée par le développement logiciel, l\'IA et la data science. Recherche actuellement un stage PFE.'
                 })}
               </p>
             </div>
@@ -77,12 +77,12 @@ export const HeroSection = () => {
                     color: "var(--hero-text)",
                   }}
                 >
-                  5 {t('hero-years', { en: 'years', fr: 'ans' })}
+                  4+ {t('hero-years', { en: 'years', fr: 'ans' })}
                 </h3>
                 <span style={{ color: "var(--hero-muted)" }}>
                   {t('hero-engineering-bg', {
-                    en: 'Engineering Background',
-                    fr: 'Formation en Ingénierie'
+                    en: 'Engineering Studies',
+                    fr: 'Études d\'Ingénierie'
                   })}
                 </span>
               </div>
@@ -94,7 +94,7 @@ export const HeroSection = () => {
                     color: "var(--hero-text)",
                   }}
                 >
-                  +10
+                  15+
                 </h3>
                 <span style={{ color: "var(--hero-muted)" }}>
                   {t('hero-projects', { en: 'Projects', fr: 'Projets' })}
@@ -108,12 +108,12 @@ export const HeroSection = () => {
                     color: "var(--hero-text)",
                   }}
                 >
-                  90%
+                  2
                 </h3>
                 <span style={{ color: "var(--hero-muted)" }}>
-                  {t('hero-feedback', {
-                    en: 'Positive Feedback',
-                    fr: 'Retours Positifs'
+                  {t('hero-internships', {
+                    en: 'Internships',
+                    fr: 'Stages'
                   })}
                 </span>
               </div>
