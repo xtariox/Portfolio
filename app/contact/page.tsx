@@ -89,7 +89,7 @@ export default function ContactPage() {
               </div>
 
               {/* Phone */}
-              <div className="flex items-center gap-4">
+              {/* <div className="flex items-center gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-lg flex items-center justify-center">
                   <svg
                     className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--accent)]"
@@ -116,7 +116,7 @@ export default function ContactPage() {
                     (+212) 695-221-162
                   </a>
                 </div>
-              </div>
+              </div> */}
 
               {/* LinkedIn */}
               <div className="flex items-center gap-4">
@@ -232,7 +232,7 @@ export default function ContactPage() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.form
+          {/* <motion.form
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -310,7 +310,7 @@ export default function ContactPage() {
             >
               {t('send-message', { en: 'Send Message', fr: 'Envoyer le message' })}
             </button>
-          </motion.form>
+          </motion.form> */}
         </div>
       </div>
     </SectionWrapper>

@@ -2,7 +2,7 @@ export default function SectionWrapper({ id, children }: { id?: string; children
   return (
     <section
     id={id}
-    className="min-h-screen scroll-mt-24 flex items-center justify-center px-6 md:px-12 lg:px-20 z-10"
+    className="min-h-screen scroll-mt-24 flex items-center justify-center px-6 md:px-12 lg:px-20"
   >
     {children}
   </section>

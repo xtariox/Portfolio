@@ -10,7 +10,7 @@ section {
   @apply py-10;
   position: relative;
   background-color: var(--bg); /* your theme background */
-  z-index: 10;
+  z-index: 1;
 }
 
 html {
@@ -77,4 +77,5 @@ body {
   background-color: var(--bg);
   color: var(--text);
   transition: background-color 0.3s, color 0.3s;
+  padding-top: 80px; /* Account for fixed navbar height */
 }

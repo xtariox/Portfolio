@@ -49,7 +49,7 @@ export const Navbar = () => {
         }`}
       />
 
-      <header className="sticky top-0 w-full bg-[var(--navbar-bg)] border-b border-[var(--navbar-border)] z-40">
+      <header className="fixed top-0 left-0 right-0 w-full bg-[var(--navbar-bg)]/95 backdrop-blur-md border-b border-[var(--navbar-border)] z-[100] shadow-sm">
         <nav className="relative mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex items-center justify-between h-20 text-[var(--navbar-text)]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-x-0.5">
